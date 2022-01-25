@@ -9,6 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AgregarComponent implements OnInit {
 
+  //Variable para cambiar el mensaje
+  texto1: string = 'Nombre falso para cambiar'
+
+  color: string = '#00ff00'
+
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required]]
   })
@@ -20,6 +25,14 @@ export class AgregarComponent implements OnInit {
 
   tieneErrores(arg: string) {
     return this.miFormulario.get(arg)?.invalid
+  }
+
+  cambiarNombre() {
+    this.texto1 = 'Ignacio Bohigues';
+  }
+
+  cambiarColor() {
+    this.color = '#3020ff';
   }
 
 }
