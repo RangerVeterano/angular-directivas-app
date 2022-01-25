@@ -11,8 +11,7 @@ export class AgregarComponent implements OnInit {
 
   //Variable para cambiar el mensaje
   texto1: string = 'Nombre falso para cambiar'
-
-  color: string = '#00ff00'
+  color: string = '#ff0000'
 
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required]]
@@ -24,15 +23,16 @@ export class AgregarComponent implements OnInit {
   }
 
   tieneErrores(arg: string) {
-    return this.miFormulario.get(arg)?.invalid
+    return this.miFormulario.get(arg)?.invalid || false;
   }
 
   cambiarNombre() {
-    this.texto1 = 'Ignacio Bohigues';
+    this.texto1 = Math.random().toString();
   }
 
   cambiarColor() {
-    this.color = '#3020ff';
+    const color = "#xxxxxx".replace(/x/g, y => (Math.random() * 16 | 0).toString(16));
+    this.color = color;
   }
 
 }
